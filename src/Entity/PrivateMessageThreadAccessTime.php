@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\private_message\Entity;
+namespace Drupal\pm_chat\Entity;
 
 use Drupal\Core\Entity\ContentEntityBase;
 use Drupal\Core\Entity\EntityTypeInterface;
@@ -15,7 +15,7 @@ use Drupal\user\UserInterface;
  *   label = @Translation("Private Message Thread Access Time"),
  *   handlers = {
  *     "views_data" = "Drupal\views\EntityViewsData",
- *     "access" = "Drupal\private_message\Entity\Access\PrivateMessageThreadAccessTimeAccessControlHandler",
+ *     "access" = "Drupal\pm_chat\Entity\Access\PrivateMessageThreadAccessTimeAccessControlHandler",
  *   },
  *   base_table = "pm_thread_access_time",
  *   fieldable = FALSE,

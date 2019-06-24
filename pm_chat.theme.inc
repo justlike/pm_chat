@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains preprocess functions for the private message module.
+ * Contains preprocess functions for the private message chat module.
  */
 
 use Drupal\Core\Link;

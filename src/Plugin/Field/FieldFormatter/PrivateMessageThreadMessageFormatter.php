@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\private_message\Plugin\Field\FieldFormatter;
+namespace Drupal\pm_chat\Plugin\Field\FieldFormatter;
 
 use Drupal\Core\Access\CsrfTokenGenerator;
 use Drupal\Core\Entity\EntityManagerInterface;
@@ -269,10 +269,10 @@ class PrivateMessageThreadMessageFormatter extends FormatterBase implements Cont
       'messageTotal' => $total,
     ];
 
-    $element['#attached']['library'][] = 'private_message/private_message_thread_script';
+    $element['#attached']['library'][] = 'pm_chat/private_message_thread_script';
     $style_disabled = $this->config->get('remove_css');
     if (!$style_disabled) {
-      $element['#attached']['library'][] = 'private_message/private_message_thread_style';
+      $element['#attached']['library'][] = 'pm_chat/private_message_thread_style';
     }
 
     return $element;

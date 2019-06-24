@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\private_message\Entity;
+namespace Drupal\pm_chat\Entity;
 
 use Drupal\Core\Cache\Cache;
 use Drupal\Core\Entity\ContentEntityBase;
@@ -16,11 +16,11 @@ use Drupal\Core\Session\AccountInterface;
  *   id = "private_message_thread",
  *   label = @Translation("Private Message Thread"),
  *   handlers = {
- *     "view_builder" = "Drupal\private_message\Entity\Builder\PrivateMessageThreadViewBuilder",
+ *     "view_builder" = "Drupal\pm_chat\Entity\Builder\PrivateMessageThreadViewBuilder",
  *     "views_data" = "Drupal\views\EntityViewsData",
- *     "access" = "Drupal\private_message\Entity\Access\PrivateMessageThreadAccessControlHandler",
+ *     "access" = "Drupal\pm_chat\Entity\Access\PrivateMessageThreadAccessControlHandler",
  *     "form" = {
- *       "delete" = "Drupal\private_message\Form\PrivateMessageThreadDeleteForm",
+ *       "delete" = "Drupal\pm_chat\Form\PrivateMessageThreadDeleteForm",
  *     },
  *   },
  *   base_table = "private_message_threads",

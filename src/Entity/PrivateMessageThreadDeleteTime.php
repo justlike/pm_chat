@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\private_message\Entity;
+namespace Drupal\pm_chat\Entity;
 
 use Drupal\Core\Entity\ContentEntityBase;
 use Drupal\Core\Entity\EntityTypeInterface;
@@ -15,7 +15,7 @@ use Drupal\user\UserInterface;
  *   label = @Translation("Private Message Thread Delete Time"),
  *   handlers = {
  *     "views_data" = "Drupal\views\EntityViewsData",
- *     "access" = "Drupal\private_message\Entity\Access\PrivateMessageThreadDeleteTimeAccessControlHandler",
+ *     "access" = "Drupal\pm_chat\Entity\Access\PrivateMessageThreadDeleteTimeAccessControlHandler",
  *   },
  *   base_table = "pm_thread_delete_time",
  *   fieldable = FALSE,

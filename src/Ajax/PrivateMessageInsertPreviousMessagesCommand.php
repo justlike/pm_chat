@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\private_message\Ajax;
+namespace Drupal\pm_chat\Ajax;
 
 /**
  * Class to insert older private messages into a private message thread.

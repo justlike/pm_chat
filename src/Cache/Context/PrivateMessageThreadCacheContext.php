@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\private_message\Cache\Context;
+namespace Drupal\pm_chat\Cache\Context;
 
 use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\Cache\Context\CacheContextInterface;

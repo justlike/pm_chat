@@ -1,0 +1,35 @@
+pm_chat.admin.structure:
+  title: 'Private Messages'
+  description: 'Configure private messages'
+  route_name:  pm_chat.admin_structure
+  parent: system.admin_structure
+
+private_message_thread.admin.structure.settings:
+  title: 'Private Message Threads'
+  description: 'Configure private message entities'
+  route_name:  pm_chat.private_message_thread_settings
+  parent: pm_chat.admin.structure
+
+pm_chat.admin.structure.settings:
+  title: 'Private Message'
+  description: 'Configure private message thread entities'
+  route_name:  pm_chat.private_message_settings
+  parent: pm_chat.admin.structure
+
+pm_chat.admin_config:
+  title: 'Private Message'
+  description: 'Configuration settings for private messages'
+  route_name: pm_chat.admin_config
+  parent: system.admin_config
+
+pm_chat.admin_config.config:
+  title: 'Configuration'
+  description: 'Various configuration settings for the Private Messages module'
+  route_name: pm_chat.admin_config.config
+  parent: pm_chat.admin_config
+
+pm_chat.admin_config.uninstall:
+  title: 'Uninstall'
+  description: 'Prepare the private message module for uninstallation'
+  route_name: pm_chat.admin_config.uninstall
+  parent: pm_chat.admin_config

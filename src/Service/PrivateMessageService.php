@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\private_message\Service;
+namespace Drupal\pm_chat\Service;
 
 use Drupal\Component\Datetime\TimeInterface;
 use Drupal\Core\Cache\CacheTagsInvalidatorInterface;
@@ -10,9 +10,9 @@ use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Session\AccountProxyInterface;
 use Drupal\Core\Url;
-use Drupal\private_message\Entity\PrivateMessageInterface;
-use Drupal\private_message\Entity\PrivateMessageThreadInterface;
-use Drupal\private_message\Mapper\PrivateMessageMapperInterface;
+use Drupal\pm_chat\Entity\PrivateMessageInterface;
+use Drupal\pm_chat\Entity\PrivateMessageThreadInterface;
+use Drupal\pm_chat\Mapper\PrivateMessageMapperInterface;
 use Drupal\user\UserDataInterface;
 use Drupal\user\UserInterface;
 
@@ -24,7 +24,7 @@ class PrivateMessageService implements PrivateMessageServiceInterface {
   /**
    * The private message mapper service.
    *
-   * @var \Drupal\private_message\Mapper\PrivateMessageMapperInterface
+   * @var \Drupal\pm_chat\Mapper\PrivateMessageMapperInterface
    */
   protected $mapper;
 
@@ -80,7 +80,7 @@ class PrivateMessageService implements PrivateMessageServiceInterface {
   /**
    * Constructs a PrivateMessageService object.
    *
-   * @param Drupal\private_message\Mapper\PrivateMessageMapperInterface $mapper
+   * @param Drupal\pm_chat\Mapper\PrivateMessageMapperInterface $mapper
    *   The private message mapper service.
    * @param \Drupal\Core\Session\AccountProxyInterface $currentUser
    *   The current user.
@@ -394,7 +394,7 @@ class PrivateMessageService implements PrivateMessageServiceInterface {
    * @param \Drupal\user\Entity\User[] $members
    *   An array of users who will be members of the given thread.
    *
-   * @return \Drupal\private_message\Entity\PrivateMessageThread
+   * @return \Drupal\pm_chat\Entity\PrivateMessageThread
    *   The new private message thread.
    */
   protected function createPrivateMessageThread(array $members) {

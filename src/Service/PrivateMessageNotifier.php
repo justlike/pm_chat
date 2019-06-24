@@ -1,14 +1,14 @@
 <?php
 
-namespace Drupal\private_message\Service;
+namespace Drupal\pm_chat\Service;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Session\AccountProxyInterface;
 use Drupal\message_notify\MessageNotifier;
-use Drupal\private_message\Entity\PrivateMessageInterface;
-use Drupal\private_message\Entity\PrivateMessageThreadInterface;
+use Drupal\pm_chat\Entity\PrivateMessageInterface;
+use Drupal\pm_chat\Entity\PrivateMessageThreadInterface;
 use Drupal\user\UserDataInterface;
 
 /**
@@ -19,7 +19,7 @@ class PrivateMessageNotifier implements PrivateMessageNotifierInterface {
   /**
    * The private message service.
    *
-   * @var \Drupal\private_message\Service\PrivateMessageServiceInterface
+   * @var \Drupal\pm_chat\Service\PrivateMessageServiceInterface
    */
   protected $privateMessageService;
 
@@ -61,7 +61,7 @@ class PrivateMessageNotifier implements PrivateMessageNotifierInterface {
   /**
    * Constructs a new PrivateMessageNotifier object.
    *
-   * @param \Drupal\private_message\Service\PrivateMessageServiceInterface $privateMessageService
+   * @param \Drupal\pm_chat\Service\PrivateMessageServiceInterface $privateMessageService
    *   The private message service.
    * @param \Drupal\Core\Session\AccountProxyInterface $currentUser
    *   The current user.
@@ -129,9 +129,9 @@ class PrivateMessageNotifier implements PrivateMessageNotifierInterface {
    *
    * @param \Drupal\Core\Session\AccountInterface $recipient
    *   The potential recipient.
-   * @param \Drupal\private_message\Entity\PrivateMessageInterface $message
+   * @param \Drupal\pm_chat\Entity\PrivateMessageInterface $message
    *   The private message for which a notification is being sent.
-   * @param \Drupal\private_message\Entity\PrivateMessageThreadInterface $thread
+   * @param \Drupal\pm_chat\Entity\PrivateMessageThreadInterface $thread
    *   The private message thread.
    *
    * @return bool

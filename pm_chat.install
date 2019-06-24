@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * Holds install and update hooks for the Private Messsage Chat module.
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function pm_chat_uninstall() {
+  \Drupal::configFactory()->getEditable('core.entity_view_display.user.user.private_message_author')->delete();
+  \Drupal::configFactory()->getEditable('core.entity_view_mode.user.private_message_author')->delete();
+  \Drupal::configFactory()->getEditable('message.template.private_message_notification')->delete();
+  \Drupal::configFactory()->getEditable('core.entity_view_display.message.private_message_notification.mail_body')->delete();
+  \Drupal::configFactory()->getEditable('core.entity_view_display.message.private_message_notification.mail_subject')->delete();
+  \Drupal::configFactory()->getEditable('core.entity_form_display.message.private_message_notification.default')->delete();
+  \Drupal::configFactory()->getEditable('core.entity_view_display.message.private_message_notification.default')->delete();
+}

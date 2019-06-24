@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\private_message\Form;
+namespace Drupal\pm_chat\Form;
 
 use Drupal\Core\Form\ConfirmFormBase;
 use Drupal\Core\Form\FormStateInterface;
@@ -85,7 +85,7 @@ class AdminUninstallForm extends ConfirmFormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $form['#attached']['library'][] = 'private_message/uninstall_page';
+    $form['#attached']['library'][] = 'pm_chat/uninstall_page';
 
     return parent::buildForm($form, $form_state);
   }

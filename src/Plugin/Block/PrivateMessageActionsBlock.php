@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\private_message\Plugin\Block;
+namespace Drupal\pm_chat\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Block\BlockPluginInterface;

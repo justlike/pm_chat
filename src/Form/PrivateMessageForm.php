@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\private_message\Form;
+namespace Drupal\pm_chat\Form;
 
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\ReplaceCommand;
@@ -13,12 +13,12 @@ use Drupal\Core\Entity\Entity\EntityFormDisplay;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Session\AccountProxyInterface;
 use Drupal\Core\TypedData\TypedDataManagerInterface;
-use Drupal\private_message\Ajax\PrivateMessageInboxTriggerUpdateCommand;
-use Drupal\private_message\Ajax\PrivateMessageLoadNewMessagesCommand;
-use Drupal\private_message\Entity\PrivateMessageThread;
-use Drupal\private_message\Entity\PrivateMessageThreadInterface;
-use Drupal\private_message\Service\PrivateMessageServiceInterface;
-use Drupal\private_message\Service\PrivateMessageThreadManagerInterface;
+use Drupal\pm_chat\Ajax\PrivateMessageInboxTriggerUpdateCommand;
+use Drupal\pm_chat\Ajax\PrivateMessageLoadNewMessagesCommand;
+use Drupal\pm_chat\Entity\PrivateMessageThread;
+use Drupal\pm_chat\Entity\PrivateMessageThreadInterface;
+use Drupal\pm_chat\Service\PrivateMessageServiceInterface;
+use Drupal\pm_chat\Service\PrivateMessageThreadManagerInterface;
 use Drupal\user\UserDataInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -72,14 +72,14 @@ class PrivateMessageForm extends ContentEntityForm {
   /**
    * The private message service.
    *
-   * @var \Drupal\private_message\Service\PrivateMessageServiceInterface
+   * @var \Drupal\pm_chat\Service\PrivateMessageServiceInterface
    */
   protected $privateMessageService;
 
   /**
    * The private message thread manager service.
    *
-   * @var \Drupal\private_message\Service\PrivateMessageThreadManagerInterface
+   * @var \Drupal\pm_chat\Service\PrivateMessageThreadManagerInterface
    */
   protected $privateMessageThreadManager;
 
@@ -105,9 +105,9 @@ class PrivateMessageForm extends ContentEntityForm {
    *   The user data service.
    * @param \Drupal\Core\Config\ConfigFactoryInterface $configFactory
    *   The configuration factory service.
-   * @param \Drupal\private_message\Service\PrivateMessageServiceInterface $privateMessageService
+   * @param \Drupal\pm_chat\Service\PrivateMessageServiceInterface $privateMessageService
    *   The private message service.
-   * @param \Drupal\private_message\Service\PrivateMessageThreadManagerInterface $privateMessageThreadManager
+   * @param \Drupal\pm_chat\Service\PrivateMessageThreadManagerInterface $privateMessageThreadManager
    *   The private message thread manager service.
    */
   public function __construct(
@@ -143,7 +143,7 @@ class PrivateMessageForm extends ContentEntityForm {
       $container->get('typed_data_manager'),
       $container->get('user.data'),
       $container->get('config.factory'),
-      $container->get('private_message.service'),
+      $container->get('pm_chat.service'),
       $container->get('private_message.thread_manager')
     );
   }
@@ -186,7 +186,7 @@ class PrivateMessageForm extends ContentEntityForm {
       ];
 
       // Only to do these when using #ajax.
-      $form['#attached']['library'][] = 'private_message/message_form';
+      $form['#attached']['library'][] = 'pm_chat/message_form';
       $autofocus_enabled = $this->configFactory->get('private_message.settings')->get('autofocus_enable');
       if ($autofocus_enabled) {
         $form['message']['widget'][0]['#attributes']['autofocus'] = 'autofocus';
@@ -225,7 +225,7 @@ class PrivateMessageForm extends ContentEntityForm {
    * shoehorned in from the PrivateMessageThread entity, to make for a better
    * user experience, by creating a thread and a message in a single form.
    *
-   * @see \Drupal\private_message\Entity\PrivateMessageThead::baseFieldDefinitions
+   * @see \Drupal\pm_chat\Entity\PrivateMessageThead::baseFieldDefinitions
    */
   public function validateMembers(array &$form, FormStateInterface $formState) {
     // The members form element was loaded from the PrivateMessageThread entity

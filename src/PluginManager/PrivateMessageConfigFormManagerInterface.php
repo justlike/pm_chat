@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\private_message\PluginManager;
+namespace Drupal\pm_chat\PluginManager;
 
 /**
  * Plugin Manager to detect PrivateMessageConfigForm plugins.

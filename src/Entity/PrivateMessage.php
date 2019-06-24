@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\private_message\Entity;
+namespace Drupal\pm_chat\Entity;
 
 use Drupal\Core\Entity\ContentEntityBase;
 use Drupal\Core\Entity\EntityStorageInterface;
@@ -15,12 +15,12 @@ use Drupal\user\UserInterface;
  *   id = "private_message",
  *   label = @Translation("Private Message"),
  *   handlers = {
- *     "view_builder" = "Drupal\private_message\Entity\Builder\PrivateMessageViewBuilder",
+ *     "view_builder" = "Drupal\pm_chat\Entity\Builder\PrivateMessageViewBuilder",
  *     "views_data" = "Drupal\views\EntityViewsData",
  *     "form" = {
- *       "add" = "Drupal\private_message\Form\PrivateMessageForm",
+ *       "add" = "Drupal\pm_chat\Form\PrivateMessageForm",
  *     },
- *     "access" = "Drupal\private_message\Entity\Access\PrivateMessageAccessControlHandler",
+ *     "access" = "Drupal\pm_chat\Entity\Access\PrivateMessageAccessControlHandler",
  *   },
  *   base_table = "private_messages",
  *   admin_permission = "administer private messages",

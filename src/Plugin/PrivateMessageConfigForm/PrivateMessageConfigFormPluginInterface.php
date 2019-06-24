@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\private_message\Plugin\PrivateMessageConfigForm;
+namespace Drupal\pm_chat\Plugin\PrivateMessageConfigForm;
 
 use Drupal\Component\Plugin\PluginInspectionInterface;
 use Drupal\Core\Form\FormStateInterface;

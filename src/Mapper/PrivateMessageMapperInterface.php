@@ -1,8 +1,8 @@
 <?php
 
-namespace Drupal\private_message\Mapper;
+namespace Drupal\pm_chat\Mapper;
 
-use Drupal\private_message\Entity\PrivateMessageInterface;
+use Drupal\pm_chat\Entity\PrivateMessageInterface;
 use Drupal\user\UserInterface;
 
 /**
@@ -142,7 +142,7 @@ interface PrivateMessageMapperInterface {
   /**
    * Load the thread id of the thread that a private message belongs to.
    *
-   * @param Drupal\private_message\Entity\PrivateMessageInterface $privateMessage
+   * @param Drupal\pm_chat\Entity\PrivateMessageInterface $privateMessage
    *   The private message for which the thread ID of the thread it belongs to
    *   should be returned.
    *

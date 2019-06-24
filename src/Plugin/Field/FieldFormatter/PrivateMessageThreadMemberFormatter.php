@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\private_message\Plugin\Field\FieldFormatter;
+namespace Drupal\pm_chat\Plugin\Field\FieldFormatter;
 
 use Drupal\Component\Render\FormattableMarkup;
 use Drupal\Core\Entity\EntityManagerInterface;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\private_message\PluginManager;
+namespace Drupal\pm_chat\PluginManager;
 
 use Drupal\Core\Cache\CacheBackendInterface;
 use Drupal\Core\Extension\ModuleHandlerInterface;
@@ -23,7 +23,7 @@ class PrivateMessageConfigFormManager extends DefaultPluginManager implements Pr
    *   The module handler service.
    */
   public function __construct(Traversable $namespaces, CacheBackendInterface $cacheBackend, ModuleHandlerInterface $moduleHandler) {
-    parent::__construct('Plugin/PrivateMessageConfigForm', $namespaces, $moduleHandler, 'Drupal\private_message\Plugin\PrivateMessageConfigForm\PrivateMessageConfigFormPluginInterface', 'Drupal\private_message\Annotation\PrivateMessageConfigForm');
+    parent::__construct('Plugin/PrivateMessageConfigForm', $namespaces, $moduleHandler, 'Drupal\pm_chat\Plugin\PrivateMessageConfigForm\PrivateMessageConfigFormPluginInterface', 'Drupal\pm_chat\Annotation\PrivateMessageConfigForm');
 
     $this->alterInfo('private_message_config_form_info');
     $this->setCacheBackend($cacheBackend, 'private_message_config_form');

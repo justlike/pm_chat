@@ -1,0 +1,9 @@
+pm_chat.private_message_settings_tab:
+  route_name: pm_chat.private_message_settings
+  title: Settings
+  base_route: pm_chat.private_message_settings
+
+pm_chat.private_message_thread_settings_tab:
+  route_name: pm_chat.private_message_thread_settings
+  title: Settings
+  base_route: pm_chat.private_message_thread_settings

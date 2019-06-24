@@ -1,18 +1,18 @@
 {
-  "name": "drupal/private_message",
+  "name": "drupal/pm_chat",
   "description": "A private message system for users to send messages to each other.",
   "type": "drupal-module",
-  "homepage": "https://drupal.org/project/private_message",
+  "homepage": "https://drupal.org/project/pm_chat",
   "authors": [
     {
-        "name": "Jay Friendly (Jaypan)",
-        "homepage": "https://www.jaypan.com",
+        "name": "Philippe Joulot (phjou)",
+        "homepage": "https://www.philippejoulot.fr",
         "role": "Maintainer"
     }
   ],
   "support": {
-    "issues": "https://drupal.org/project/issues/private_message",
-    "source": "https://cgit.drupalcode.org/private_message"
+    "issues": "https://drupal.org/project/issues/pm_chat",
+    "source": "https://cgit.drupalcode.org/pm_chat"
   },
   "license": "GPL-2.0-or-later",
   "minimum-stability": "dev",

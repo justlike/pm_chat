@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\private_message\Plugin\Validation\Constraint;
+namespace Drupal\pm_chat\Plugin\Validation\Constraint;
 
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;

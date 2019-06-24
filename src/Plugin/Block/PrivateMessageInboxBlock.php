@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\private_message\Plugin\Block;
+namespace Drupal\pm_chat\Plugin\Block;
 
 use Drupal\Core\Access\CsrfTokenGenerator;
 use Drupal\Core\Block\BlockBase;
@@ -11,7 +11,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Session\AccountProxyInterface;
 use Drupal\Core\Url;
-use Drupal\private_message\Service\PrivateMessageServiceInterface;
+use Drupal\pm_chat\Service\PrivateMessageServiceInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Config\ConfigFactoryInterface;
 
@@ -29,7 +29,7 @@ class PrivateMessageInboxBlock extends BlockBase implements BlockPluginInterface
   /**
    * The private message service.
    *
-   * @var \Drupal\private_message\Service\PrivateMessageServiceInterface
+   * @var \Drupal\pm_chat\Service\PrivateMessageServiceInterface
    */
   protected $privateMessageService;
 
@@ -72,7 +72,7 @@ class PrivateMessageInboxBlock extends BlockBase implements BlockPluginInterface
    *   The plugin definition.
    * @param \Drupal\Core\Session\AccountProxyInterface $currentUser
    *   The current user.
-   * @param \Drupal\private_message\Service\PrivateMessageServiceInterface $privateMessageService
+   * @param \Drupal\pm_chat\Service\PrivateMessageServiceInterface $privateMessageService
    *   The private message service.
    * @param \Drupal\Core\Entity\EntityManagerInterface $entityManager
    *   The entity manager service.
@@ -100,7 +100,7 @@ class PrivateMessageInboxBlock extends BlockBase implements BlockPluginInterface
       $plugin_id,
       $plugin_definition,
       $container->get('current_user'),
-      $container->get('private_message.service'),
+      $container->get('pm_chat.service'),
       $container->get('entity.manager'),
       $container->get('csrf_token'),
       $container->get('config.factory')
@@ -123,10 +123,10 @@ class PrivateMessageInboxBlock extends BlockBase implements BlockPluginInterface
           $block[$thread->id()] = $view_builder->view($thread, 'inbox');
         }
 
-        $block['#attached']['library'][] = 'private_message/inbox_block_script';
+        $block['#attached']['library'][] = 'pm_chat/inbox_block_script';
         $style_disabled = $this->privateMessageConfig->get('remove_css');
         if (!$style_disabled) {
-          $block['#attached']['library'][] = 'private_message/inbox_block_style';
+          $block['#attached']['library'][] = 'pm_chat/inbox_block_style';
         }
         if (count($threads) && $thread_info['next_exists']) {
           $prev_url = Url::fromRoute('private_message.ajax_callback', ['op' => 'get_old_inbox_threads']);

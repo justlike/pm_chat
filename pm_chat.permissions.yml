@@ -6,6 +6,6 @@ administer private messages:
   title: 'Administer private messages'
   description: 'Allows administrators to administer private messages'
 
-administer private message module:
-  title: 'Administer private message module'
-  description: 'Allows administrators to manage all parts of the One Page Private Message module'
+administer private message chat module:
+  title: 'Administer private message chat module'
+  description: 'Allows administrators to manage all parts of the One Page Private Message Chat module'

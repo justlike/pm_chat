@@ -1,36 +1,36 @@
 <?php
 
-namespace Drupal\private_message\Service;
+namespace Drupal\pm_chat\Service;
 
 use Drupal\Core\Session\AccountInterface;
-use Drupal\private_message\Entity\PrivateMessageInterface;
-use Drupal\private_message\Entity\PrivateMessageThreadInterface;
+use Drupal\pm_chat\Entity\PrivateMessageInterface;
+use Drupal\pm_chat\Entity\PrivateMessageThreadInterface;
 
 /**
  * The Private Message generator class.
  *
- * @package Drupal\private_message\Service
+ * @package Drupal\pm_chat\Service
  */
 class PrivateMessageThreadManager implements PrivateMessageThreadManagerInterface {
 
   /**
    * The private message service.
    *
-   * @var \Drupal\private_message\Service\PrivateMessageServiceInterface
+   * @var \Drupal\pm_chat\Service\PrivateMessageServiceInterface
    */
   private $privateMessageService;
 
   /**
    * The private message notifier service.
    *
-   * @var \Drupal\private_message\Service\PrivateMessageNotifierInterface
+   * @var \Drupal\pm_chat\Service\PrivateMessageNotifierInterface
    */
   private $privateMessageNotifier;
 
   /**
    * The private message.
    *
-   * @var \Drupal\private_message\Entity\PrivateMessageInterface
+   * @var \Drupal\pm_chat\Entity\PrivateMessageInterface
    */
   private $message;
 
@@ -51,16 +51,16 @@ class PrivateMessageThreadManager implements PrivateMessageThreadManagerInterfac
   /**
    * The private message thread.
    *
-   * @var \Drupal\private_message\Entity\PrivateMessageThreadInterface|null
+   * @var \Drupal\pm_chat\Entity\PrivateMessageThreadInterface|null
    */
   private $thread;
 
   /**
    * PrivateMessageThreadManager constructor.
    *
-   * @param \Drupal\private_message\Service\PrivateMessageServiceInterface $privateMessageService
+   * @param \Drupal\pm_chat\Service\PrivateMessageServiceInterface $privateMessageService
    *   The private message service.
-   * @param \Drupal\private_message\Service\PrivateMessageNotifierInterface $privateMessageNotifier
+   * @param \Drupal\pm_chat\Service\PrivateMessageNotifierInterface $privateMessageNotifier
    *   The private message notifier service.
    */
   public function __construct(

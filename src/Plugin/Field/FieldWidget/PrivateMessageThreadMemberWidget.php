@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\private_message\Plugin\Field\FieldWidget;
+namespace Drupal\pm_chat\Plugin\Field\FieldWidget;
 
 use Drupal\Component\Utility\NestedArray;
 use Drupal\Core\Access\CsrfTokenGenerator;
@@ -205,10 +205,10 @@ class PrivateMessageThreadMemberWidget extends EntityReferenceAutocompleteWidget
       $element['#max_members'] = $max_members;
     }
 
-    $element['#attached']['library'][] = 'private_message/members_widget_script';
+    $element['#attached']['library'][] = 'pm_chat/members_widget_script';
     $style_disabled = $this->config->get('remove_css');
     if (!$style_disabled) {
-      $element['#attached']['library'][] = 'private_message/members_widget_style';
+      $element['#attached']['library'][] = 'pm_chat/members_widget_style';
     }
     $url = Url::fromRoute('private_message.members_widget_callback');
     $token = $this->csrfTokenGenerator->get($url->getInternalPath());

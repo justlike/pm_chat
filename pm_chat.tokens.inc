@@ -14,7 +14,7 @@ use Drupal\user\Entity\User;
 /**
  * Implements hook_token_info().
  */
-function private_message_token_info() {
+function pm_chat_token_info() {
 
   // Defined the private message token type.
   $private_message_type = [
@@ -89,7 +89,7 @@ function private_message_token_info() {
 /**
  * Implements hook_tokens().
  */
-function private_message_tokens($type, $tokens, array $data, array $options, BubbleableMetadata $bubbleable_metadata) {
+function pm_chat_tokens($type, $tokens, array $data, array $options, BubbleableMetadata $bubbleable_metadata) {
   $replacements = [];
 
   $token_service = \Drupal::token();

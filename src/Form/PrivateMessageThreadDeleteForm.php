@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\private_message\Form;
+namespace Drupal\pm_chat\Form;
 
 use Drupal\Core\Entity\ContentEntityConfirmFormBase;
 use Drupal\Core\Form\FormStateInterface;

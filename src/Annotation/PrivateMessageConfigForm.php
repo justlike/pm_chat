@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\private_message\Annotation;
+namespace Drupal\pm_chat\Annotation;
 
 use Drupal\Component\Annotation\Plugin;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\private_message\Plugin\Block;
+namespace Drupal\pm_chat\Plugin\Block;
 
 use Drupal\Core\Access\CsrfTokenGenerator;
 use Drupal\Core\Block\BlockBase;
@@ -10,7 +10,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Session\AccountProxyInterface;
 use Drupal\Core\Url;
-use Drupal\private_message\Service\PrivateMessageServiceInterface;
+use Drupal\pm_chat\Service\PrivateMessageServiceInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Config\ConfigFactoryInterface;
 
@@ -42,7 +42,7 @@ class PrivateMessageNotificationBlock extends BlockBase implements BlockPluginIn
   /**
    * The private message service.
    *
-   * @var \Drupal\private_message\Service\PrivateMessageServiceInterface
+   * @var \Drupal\pm_chat\Service\PrivateMessageServiceInterface
    */
   protected $privateMessageService;
 
@@ -66,7 +66,7 @@ class PrivateMessageNotificationBlock extends BlockBase implements BlockPluginIn
    *   The current user.
    * @param \Drupal\Core\Access\CsrfTokenGenerator $csrfToken
    *   The CSRF token generator service.
-   * @param \Drupal\private_message\Service\PrivateMessageServiceInterface $privateMessageService
+   * @param \Drupal\pm_chat\Service\PrivateMessageServiceInterface $privateMessageService
    *   The private message service.
    * @param \Drupal\Core\Config\ConfigFactoryInterface $config
    *   The config service.
@@ -90,7 +90,7 @@ class PrivateMessageNotificationBlock extends BlockBase implements BlockPluginIn
       $plugin_definition,
       $container->get('current_user'),
       $container->get('csrf_token'),
-      $container->get('private_message.service'),
+      $container->get('pm_chat.service'),
       $container->get('config.factory')
     );
   }
@@ -113,10 +113,10 @@ class PrivateMessageNotificationBlock extends BlockBase implements BlockPluginIn
       $config = $this->getConfiguration();
       $block['#attached']['drupalSettings']['privateMessageNotificationBlock']['ajaxRefreshRate'] = $config['ajax_refresh_rate'];
 
-      $block['#attached']['library'][] = 'private_message/notification_block_script';
+      $block['#attached']['library'][] = 'pm_chat/notification_block_script';
       $style_disabled = $this->privateMessageConfig->get('remove_css');
       if (!$style_disabled) {
-        $block['#attached']['library'][] = 'private_message/notification_block_style';
+        $block['#attached']['library'][] = 'pm_chat/notification_block_style';
       }
 
       // Add the default classes, as these are not added when the block output

@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\private_message\Entity\Builder;
+namespace Drupal\pm_chat\Entity\Builder;
 
 use Drupal\Core\Cache\Cache;
 use Drupal\Core\Entity\EntityInterface;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\private_message\Entity;
+namespace Drupal\pm_chat\Entity;
 
 use Drupal\Core\Entity\ContentEntityInterface;
 use Drupal\Core\Session\AccountInterface;
@@ -18,7 +18,7 @@ interface PrivateMessageThreadInterface extends ContentEntityInterface {
    * @param \Drupal\user\AccountInterface $account
    *   The account to be set as a member of the private message thread.
    *
-   * @return \Drupal\private_message\Entity\PrivateMessageInterface
+   * @return \Drupal\pm_chat\Entity\PrivateMessageInterface
    *   Returns the class itself to allow for chaining.
    */
   public function addMember(AccountInterface $account);
@@ -30,7 +30,7 @@ interface PrivateMessageThreadInterface extends ContentEntityInterface {
    *   The ID of the account to be set as a member of the private message
    *   thread.
    *
-   * @return \Drupal\private_message\Entity\PrivateMessageInterface
+   * @return \Drupal\pm_chat\Entity\PrivateMessageInterface
    *   Returns the class itself to allow for chaining.
    */
   public function addMemberById($id);
@@ -60,10 +60,10 @@ interface PrivateMessageThreadInterface extends ContentEntityInterface {
   /**
    * Add a private message to the list of messages in this thread.
    *
-   * @param Drupal\private_message\Entity\PrivateMessageInterface $privateMessage
+   * @param Drupal\pm_chat\Entity\PrivateMessageInterface $privateMessage
    *   The private message to be added to the thread.
    *
-   * @return Drupal\private_message\Entity\PrivateMessageThread
+   * @return Drupal\pm_chat\Entity\PrivateMessageThread
    *   The private message thread.
    */
   public function addMessage(PrivateMessageInterface $privateMessage);
@@ -113,7 +113,7 @@ interface PrivateMessageThreadInterface extends ContentEntityInterface {
    * @param \Drupal\Core\Session\AccountInterface $account
    *   The user whose last access time should be retrieved.
    *
-   * @return Drupal\private_message\Entity\PrivateMessageThreadAccessTimeInterface
+   * @return Drupal\pm_chat\Entity\PrivateMessageThreadAccessTimeInterface
    *   The PrivateMessagegThreadAccessTime object for the user's last access of
    *   the thread.
    */
@@ -122,7 +122,7 @@ interface PrivateMessageThreadInterface extends ContentEntityInterface {
   /**
    * Get the PrivateMessageThreadAccessTime entites referenced by this thread.
    *
-   * @return \Drupal\private_message\Entity\PrivateMessageThreadAccessTime[]
+   * @return \Drupal\pm_chat\Entity\PrivateMessageThreadAccessTime[]
    *   An array of PrivateMessageThreadAccessTime entities
    */
   public function getLastAccessTimes();
@@ -160,7 +160,7 @@ interface PrivateMessageThreadInterface extends ContentEntityInterface {
    * @param \Drupal\Core\Session\AccountInterface $account
    *   The user whose last delete time should be retrieved.
    *
-   * @return bool|\Drupal\private_message\Entity\PrivateMessageThreadDeleteTimeInterface
+   * @return bool|\Drupal\pm_chat\Entity\PrivateMessageThreadDeleteTimeInterface
    *   - If the user has not deleted the thread, FALSE
    *   - If the user has deleted the thread, a
    *     PrivateMessageThreadAccessTimeInterface object
@@ -182,7 +182,7 @@ interface PrivateMessageThreadInterface extends ContentEntityInterface {
   /**
    * Retrieve the last delete timestamps for all members of the thread.
    *
-   * @return Drupal\private_message\Entity\PrivateMessageThreadAccessTime[]
+   * @return Drupal\pm_chat\Entity\PrivateMessageThreadAccessTime[]
    *   An array of PrivateMessageLastDeleteTime entities
    */
   public function getLastDeleteTimes();
@@ -220,7 +220,7 @@ interface PrivateMessageThreadInterface extends ContentEntityInterface {
    * @param \Drupal\Core\Session\AccountInterface $account
    *   The user for whom private messages should be returned.
    *
-   * @return Drupal\private_message\Entity\PrivateMessage[]
+   * @return Drupal\pm_chat\Entity\PrivateMessage[]
    *   An array of private messages
    */
   public function filterUserDeletedMessages(AccountInterface $account);

@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\private_message\Controller;
+namespace Drupal\pm_chat\Controller;
 
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Config\ConfigFactoryInterface;
@@ -8,16 +8,16 @@ use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Entity\EntityManagerInterface;
 use Drupal\Core\Render\RendererInterface;
 use Drupal\Core\Session\AccountProxyInterface;
-use Drupal\private_message\Ajax\PrivateMessageInboxUpdateCommand;
-use Drupal\private_message\Ajax\PrivateMessageInsertNewMessagesCommand;
-use Drupal\private_message\Ajax\PrivateMessageInboxInsertThreadsCommand;
-use Drupal\private_message\Ajax\PrivateMessageInsertPreviousMessagesCommand;
-use Drupal\private_message\Ajax\PrivateMessageInsertThreadCommand;
-use Drupal\private_message\Ajax\PrivateMessageMembersAutocompleteResponseCommand;
-use Drupal\private_message\Ajax\PrivateMessageMemberUsernameValidatedCommand;
-use Drupal\private_message\Ajax\PrivateMessageUpdateUnreadThreadCountCommand;
-use Drupal\private_message\Entity\PrivateMessageThread;
-use Drupal\private_message\Service\PrivateMessageServiceInterface;
+use Drupal\pm_chat\Ajax\PrivateMessageInboxUpdateCommand;
+use Drupal\pm_chat\Ajax\PrivateMessageInsertNewMessagesCommand;
+use Drupal\pm_chat\Ajax\PrivateMessageInboxInsertThreadsCommand;
+use Drupal\pm_chat\Ajax\PrivateMessageInsertPreviousMessagesCommand;
+use Drupal\pm_chat\Ajax\PrivateMessageInsertThreadCommand;
+use Drupal\pm_chat\Ajax\PrivateMessageMembersAutocompleteResponseCommand;
+use Drupal\pm_chat\Ajax\PrivateMessageMemberUsernameValidatedCommand;
+use Drupal\pm_chat\Ajax\PrivateMessageUpdateUnreadThreadCountCommand;
+use Drupal\pm_chat\Entity\PrivateMessageThread;
+use Drupal\pm_chat\Service\PrivateMessageServiceInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 
@@ -73,7 +73,7 @@ class AjaxController extends ControllerBase implements AjaxControllerInterface {
   /**
    * The private message service.
    *
-   * @var \Drupal\private_message\Service\PrivateMessageServiceInterface
+   * @var \Drupal\pm_chat\Service\PrivateMessageServiceInterface
    */
   protected $privateMessageService;
 
@@ -90,7 +90,7 @@ class AjaxController extends ControllerBase implements AjaxControllerInterface {
    *   The configuration factory.
    * @param \Drupal\Core\Session\AccountProxyInterface $currentUser
    *   The current user.
-   * @param \Drupal\private_message\Service\PrivateMessageServiceInterface $privateMessageService
+   * @param \Drupal\pm_chat\Service\PrivateMessageServiceInterface $privateMessageService
    *   The private message service.
    */
   public function __construct(
@@ -120,7 +120,7 @@ class AjaxController extends ControllerBase implements AjaxControllerInterface {
       $container->get('entity.manager'),
       $container->get('config.factory'),
       $container->get('current_user'),
-      $container->get('private_message.service')
+      $container->get('pm_chat.service')
     );
   }
 
@@ -374,7 +374,7 @@ class AjaxController extends ControllerBase implements AjaxControllerInterface {
         $view_builder = $this->entityManager->getViewBuilder('private_message_thread');
         $renderable = $view_builder->view($thread);
         $rendered_thread = $this->renderer->renderRoot($renderable);
-        $index = array_search('private_message/private_message_thread_script', $renderable['#attached']['library']);
+        $index = array_search('pm_chat/private_message_thread_script', $renderable['#attached']['library']);
         unset($renderable['#attached']['library'][$index]);
         $response->setAttachments($renderable['#attached']);
 

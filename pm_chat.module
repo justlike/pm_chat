@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains hooks for the private message module.
+ * Contains hooks for the private message chat module.
  */
 
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
@@ -12,12 +12,12 @@ use Drupal\Core\Render\Element;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Url;
 use Drupal\user\Entity\User;
-use Drupal\private_message\Entity\PrivateMessage;
+use Drupal\pm_chat\Entity\PrivateMessage;
 
 /**
  * Implements hook_entity_extra_field_info().
  */
-function private_message_entity_extra_field_info() {
+function pm_chat_entity_extra_field_info() {
 
   $private_message_thread_bundles = \Drupal::entityManager()->getBundleInfo('private_message_thread');
   foreach (array_keys($private_message_thread_bundles) as $bundle) {
@@ -115,7 +115,7 @@ function private_message_entity_extra_field_info() {
  *
  * @see hook_entity_view()
  */
-function private_message_private_message_thread_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+function pm_chat_private_message_thread_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
   if ($display->getComponent('last_message')) {
     $messages = $entity->getMessages();
     if ($messages) {
@@ -175,7 +175,7 @@ function private_message_user_view(array &$build, EntityInterface $entity, Entit
     }
   }
 
-  \Drupal::service('private_message.service')->createRenderablePrivateMessageThreadLink($build, $entity, $display, $view_mode);
+  \Drupal::service('pm_chat.service')->createRenderablePrivateMessageThreadLink($build, $entity, $display, $view_mode);
 }
 
 /**
@@ -185,8 +185,8 @@ function private_message_user_view(array &$build, EntityInterface $entity, Entit
  *
  * @see hook_entity_view()
  */
-function private_message_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
-  \Drupal::service('private_message.service')->createRenderablePrivateMessageThreadLink($build, $entity, $display, $view_mode);
+function pm_chat_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+  \Drupal::service('pm_chat.service')->createRenderablePrivateMessageThreadLink($build, $entity, $display, $view_mode);
 }
 
 /**
@@ -196,8 +196,8 @@ function private_message_node_view(array &$build, EntityInterface $entity, Entit
  *
  * @see hook_entity_view()
  */
-function private_message_comment_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
-  \Drupal::service('private_message.service')->createRenderablePrivateMessageThreadLink($build, $entity, $display, $view_mode);
+function pm_chat_comment_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+  \Drupal::service('pm_chat.service')->createRenderablePrivateMessageThreadLink($build, $entity, $display, $view_mode);
 }
 
 /**
@@ -207,14 +207,14 @@ function private_message_comment_view(array &$build, EntityInterface $entity, En
  *
  * @see hook_entity_view()
  */
-function private_message_profile_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
-  \Drupal::service('private_message.service')->createRenderablePrivateMessageThreadLink($build, $entity, $display, $view_mode);
+function pm_chat_profile_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+  \Drupal::service('pm_chat.service')->createRenderablePrivateMessageThreadLink($build, $entity, $display, $view_mode);
 }
 
 /**
  * Implements hook_form_alter().
  */
-function private_message_form_alter(&$form, FormStateInterface $formState, $form_id) {
+function pm_chat_form_alter(&$form, FormStateInterface $formState, $form_id) {
   // Act on any implementation of the private message entity form. This form
   // can potentially exist multiple times on a page, so the form ID will be
   // dynamic in such a case.
@@ -241,7 +241,7 @@ function private_message_form_alter(&$form, FormStateInterface $formState, $form
  *
  * @see hook_form_alter()
  */
-function private_message_form_user_form_alter(array &$form, FormStateInterface $formState) {
+function pm_chat_form_user_form_alter(array &$form, FormStateInterface $formState) {
 
   $config = \Drupal::config('private_message.settings');
 
@@ -333,7 +333,7 @@ function private_message_form_user_form_alter(array &$form, FormStateInterface $
  *
  * @see private_message_form_user_form_alter()
  */
-function private_message_user_form_submit(array &$form, FormStateInterface $formState) {
+function pm_chat_user_form_submit(array &$form, FormStateInterface $formState) {
   // Get the user whose account object is being modified.
   $user = $formState->getFormObject()->getEntity();
   $user_data = \Drupal::service('user.data');
@@ -346,7 +346,7 @@ function private_message_user_form_submit(array &$form, FormStateInterface $form
 /**
  * Implements hook_theme().
  */
-function private_message_theme() {
+function pm_chat_theme() {
   return [
     'private_message_thread' => [
       'render element' => 'elements',
@@ -358,7 +358,7 @@ function private_message_theme() {
       'variables' => [
         'new_message_count' => 0,
       ],
-      'file' => 'private_message.theme.inc',
+      'file' => 'pm_chat.theme.inc',
     ],
   ];
 }
@@ -423,14 +423,14 @@ function template_preprocess_private_message(array &$variables) {
 /**
  * Implements hook_help().
  */
-function private_message_help($route_name, RouteMatchInterface $route_match) {
+function pm_chat_help($route_name, RouteMatchInterface $route_match) {
   switch ($route_name) {
-    case 'help.page.private_message':
+    case 'help.page.pm_chat':
       return t(
         '<p>A private message system for users to send messages to each other. It has been written to be fully extendable using Drupal 8 APIs.</p>
         <p>See the <a href=":project_page">project page on Drupal.org</a> for more details.</p>',
         [
-          ':project_page' => 'https://www.drupal.org/project/private_message',
+          ':project_page' => 'https://www.drupal.org/project/pm_chat',
         ]
       );
   }
@@ -443,7 +443,7 @@ function private_message_help($route_name, RouteMatchInterface $route_match) {
  * may be altered in themes/templates, and therefore should not be depended
  * upon.
  */
-function private_message_preprocess_field__private_message_thread__private_messages(&$vars) {
+function pm_chat_preprocess_field__private_message_thread__private_messages(&$vars) {
   foreach (array_keys($vars['items']) as $index) {
     $vars['items'][$index]['attributes']->setAttribute('class', 'private-message-wrapper');
   }
@@ -456,7 +456,7 @@ function private_message_preprocess_field__private_message_thread__private_messa
  * classes may be altered in themes/templates, and therefore should not be
  * depended upon.
  */
-function private_message_preprocess_container(&$vars) {
+function pm_chat_preprocess_container(&$vars) {
   if (isset($vars['element']['#id'])) {
     if (strpos('edit-members-wrapper', $vars['element']['#id']) === 0) {
       // Add a custom class to the private message members widget container.
@@ -474,7 +474,7 @@ function private_message_preprocess_container(&$vars) {
  *
  * Swaps out tokens with values.
  */
-function private_message_message_view_alter(array &$build) {
+function pm_chat_message_view_alter(array &$build) {
   if ($build['#message']->bundle() == 'private_message_notification') {
     $data = [
       'private_message' => $build['#message']->get('field_message_private_message')->entity,
@@ -494,13 +494,13 @@ function private_message_message_view_alter(array &$build) {
 /**
  * Implements hook_suggestions_HOOK_alter().
  */
-function private_message_theme_suggestions_private_message_thread_alter(&$suggestions, &$vars) {
+function pm_chat_theme_suggestions_private_message_thread_alter(&$suggestions, &$vars) {
   $suggestions[] = 'private_message_thread__' . $vars['elements']['#view_mode'];
 }
 
 /**
  * Implements hook_suggestions_HOOK_alter().
  */
-function private_message_theme_suggestions_private_message_alter(&$suggestions, &$vars) {
+function pm_chat_theme_suggestions_private_message_alter(&$suggestions, &$vars) {
   $suggestions[] = 'private_message__' . $vars['elements']['#view_mode'];
 }

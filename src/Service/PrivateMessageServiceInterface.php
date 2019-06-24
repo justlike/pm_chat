@@ -1,11 +1,11 @@
 <?php
 
-namespace Drupal\private_message\Service;
+namespace Drupal\pm_chat\Service;
 
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Entity\EntityInterface;
-use Drupal\private_message\Entity\PrivateMessageInterface;
-use Drupal\private_message\Entity\PrivateMessageThreadInterface;
+use Drupal\pm_chat\Entity\PrivateMessageInterface;
+use Drupal\pm_chat\Entity\PrivateMessageThreadInterface;
 use Drupal\user\UserInterface;
 
 /**
@@ -14,9 +14,9 @@ use Drupal\user\UserInterface;
 interface PrivateMessageServiceInterface {
 
   /**
-   * The machine name of the private message module.
+   * The machine name of the private message chat module.
    */
-  const MODULE_KEY = 'private_message';
+  const MODULE_KEY = 'pm_chat';
 
   /**
    * The timestamp at which unread private messages were marked as read.
@@ -32,7 +32,7 @@ interface PrivateMessageServiceInterface {
    *   An array of User objects for whom the private message
    *   thread should be retrieved.
    *
-   * @return \Drupal\private_message\Entity\PrivateMessageThread
+   * @return \Drupal\pm_chat\Entity\PrivateMessageThread
    *   A private message thread that contains all members in the thread.
    */
   public function getThreadForMembers(array $members);
@@ -57,7 +57,7 @@ interface PrivateMessageServiceInterface {
    * @return array
    *   An array with two keys:
    *   - threads: an array of
-   *     \Drupal\private_message\Entity\PrivateMessageThread
+   *     \Drupal\pm_chat\Entity\PrivateMessageThread
    *   - next_exists: a boolean indicating whether any more private message
    *     threads exist after the last one
    */
@@ -94,7 +94,7 @@ interface PrivateMessageServiceInterface {
    *
    * @return array
    *   An array containing the following to keys:
-   *   - messages: an array of \Drupal\private_message\Entity\PrivateMessage
+   *   - messages: an array of \Drupal\pm_chat\Entity\PrivateMessage
    *   - next_exists: a boolean indicating whether or not any messages appear
    *     in the thread before the first message returned
    */
@@ -139,7 +139,7 @@ interface PrivateMessageServiceInterface {
    *     they should appear in the inbox. This array will be used to (re) order
    *     inbox items
    *   - new_threads: An array of
-   *     \Drupal\private_message\Entity\PrivateMessageThread objects for any
+   *     \Drupal\pm_chat\Entity\PrivateMessageThread objects for any
    *     threads that either don't exist in the DOM at the time of the request,
    *     or do exist but have been updated.
    */
@@ -178,7 +178,7 @@ interface PrivateMessageServiceInterface {
   /**
    * Updates the last access time for the current user on the given thread.
    *
-   * @param \Drupal\private_message\Entity\PrivateMessageThreadInterface $thread
+   * @param \Drupal\pm_chat\Entity\PrivateMessageThreadInterface $thread
    *   The thread whose access time should be updated.
    */
   public function updateThreadAccessTime(PrivateMessageThreadInterface $thread);
@@ -186,11 +186,11 @@ interface PrivateMessageServiceInterface {
   /**
    * Load the thread that a private message belongs to.
    *
-   * @param \Drupal\private_message\Entity\PrivateMessageInterface $privateMessage
+   * @param \Drupal\pm_chat\Entity\PrivateMessageInterface $privateMessage
    *   The private message for which the thread it belongs to should be
    *   returned.
    *
-   * @return \Drupal\private_message\Entity\PrivateMessageThread
+   * @return \Drupal\pm_chat\Entity\PrivateMessageThread
    *   The private message thread to which the private message belongs
    */
   public function getThreadFromMessage(PrivateMessageInterface $privateMessage);

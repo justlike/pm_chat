@@ -1,10 +1,10 @@
 <?php
 
-namespace Drupal\private_message\Mapper;
+namespace Drupal\pm_chat\Mapper;
 
 use Drupal\Core\Database\Connection;
 use Drupal\Core\Session\AccountProxyInterface;
-use Drupal\private_message\Entity\PrivateMessageInterface;
+use Drupal\pm_chat\Entity\PrivateMessageInterface;
 use Drupal\user\UserInterface;
 
 /**

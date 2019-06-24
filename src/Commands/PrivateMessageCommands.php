@@ -1,10 +1,10 @@
 <?php
 
-namespace Drupal\private_message\Commands;
+namespace Drupal\pm_chat\Commands;
 
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
-use Drupal\private_message\Service\PrivateMessageService;
+use Drupal\pm_chat\Service\PrivateMessageService;
 use Drush\Commands\DrushCommands;
 
 /**
@@ -25,7 +25,7 @@ class PrivateMessageCommands extends DrushCommands {
   /**
    * The private message service.
    *
-   * @var \Drupal\private_message\Service\PrivateMessageService
+   * @var \Drupal\pm_chat\Service\PrivateMessageService
    */
   protected $privateMessageService;
 
@@ -39,7 +39,7 @@ class PrivateMessageCommands extends DrushCommands {
   /**
    * Constructs a  object.
    *
-   * @param \Drupal\private_message\Service\PrivateMessageService $privateMessageService
+   * @param \Drupal\pm_chat\Service\PrivateMessageService $privateMessageService
    *   The private message service.
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
    *   The entity type manager service.
@@ -55,9 +55,9 @@ class PrivateMessageCommands extends DrushCommands {
   }
 
   /**
-   * Prepares the Private Message module for uninstallation.
+   * Prepares the Private Message Chat module for uninstallation.
    *
-   * @command private_message:prepare_uninstall
+   * @command pm_chat:prepare_uninstall
    *
    * @aliases pu
    */

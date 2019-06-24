@@ -1,12 +1,12 @@
 <?php
 
-namespace Drupal\private_message\Form;
+namespace Drupal\pm_chat\Form;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Entity\EntityManagerInterface;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
-use DRupal\private_message\PluginManager\PrivateMessageConfigFormManager;
+use Drupal\pm_chat\PluginManager\PrivateMessageConfigFormManager;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -17,7 +17,7 @@ class ConfigForm extends ConfigFormBase {
   /**
    * The private message config form plugin manager.
    *
-   * @var \Drupal\private_message\PluginManager\PrivateMessageConfigFormManager
+   * @var \Drupal\pm_chat\PluginManager\PrivateMessageConfigFormManager
    */
   protected $privateMessageConfigFormManager;
 
@@ -28,7 +28,7 @@ class ConfigForm extends ConfigFormBase {
    *   The configuration factory service.
    * @param \Drupal\Core\Entity\EntityManagerInterface $entityManager
    *   The entity manager service.
-   * @param \Drupal\private_message\PluginManager\PrivateMessageConfigFormManager $privateMessageConfigFormManager
+   * @param \Drupal\pm_chat\PluginManager\PrivateMessageConfigFormManager $privateMessageConfigFormManager
    *   The private message config form plugin manager.
    */
   public function __construct(

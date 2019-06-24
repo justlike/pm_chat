@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\private_message\Entity\Access;
+namespace Drupal\pm_chat\Entity\Access;
 
 use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Entity\EntityAccessControlHandler;

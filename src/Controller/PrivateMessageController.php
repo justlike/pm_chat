@@ -1,12 +1,12 @@
 <?php
 
-namespace Drupal\private_message\Controller;
+namespace Drupal\pm_chat\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Entity\EntityManagerInterface;
 use Drupal\Core\Form\FormBuilderInterface;
 use Drupal\Core\Session\AccountProxyInterface;
-use Drupal\private_message\Service\PrivateMessageServiceInterface;
+use Drupal\pm_chat\Service\PrivateMessageServiceInterface;
 use Drupal\user\UserDataInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -46,7 +46,7 @@ class PrivateMessageController extends ControllerBase implements PrivateMessageC
   /**
    * The private message service.
    *
-   * @var \Drupal\private_message\Service\PrivateMessageServiceInterface
+   * @var \Drupal\pm_chat\Service\PrivateMessageServiceInterface
    */
   protected $privateMessageService;
 
@@ -68,7 +68,7 @@ class PrivateMessageController extends ControllerBase implements PrivateMessageC
    *   The form builder service.
    * @param \Drupal\user\UserDataInterface $userData
    *   The user data service.
-   * @param \Drupal\private_message\Service\PrivateMessageServiceInterface $privateMessageService
+   * @param \Drupal\pm_chat\Service\PrivateMessageServiceInterface $privateMessageService
    *   The private message service.
    */
   public function __construct(AccountProxyInterface $currentUser, EntityManagerInterface $entityManager, FormBuilderInterface $formBuilder, UserDataInterface $userData, PrivateMessageServiceInterface $privateMessageService) {
@@ -89,7 +89,7 @@ class PrivateMessageController extends ControllerBase implements PrivateMessageC
       $container->get('entity.manager'),
       $container->get('form_builder'),
       $container->get('user.data'),
-      $container->get('private_message.service')
+      $container->get('pm_chat.service')
     );
   }
 
@@ -149,7 +149,7 @@ class PrivateMessageController extends ControllerBase implements PrivateMessageC
     return [
       '#prefix' => '<div id="private_message_configuration_page">',
       '#suffix' => '</div>',
-      'form' => $this->formBuilder->getForm('Drupal\private_message\Form\ConfigForm'),
+      'form' => $this->formBuilder->getForm('Drupal\pm_chat\Form\ConfigForm'),
     ];
   }
 
@@ -160,7 +160,7 @@ class PrivateMessageController extends ControllerBase implements PrivateMessageC
     return [
       '#prefix' => '<div id="private_message_admin_uninstall_page">',
       '#suffix' => '</div>',
-      'form' => $this->formBuilder->getForm('Drupal\private_message\Form\AdminUninstallForm'),
+      'form' => $this->formBuilder->getForm('Drupal\pm_chat\Form\AdminUninstallForm'),
     ];
   }
 

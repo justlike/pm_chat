@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\private_message\Entity\Access;
+namespace Drupal\pm_chat\Entity\Access;
 
 use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Entity\EntityAccessControlHandler;
@@ -10,7 +10,7 @@ use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Plugin\Context\ContextHandlerInterface;
 use Drupal\Core\Plugin\Context\ContextRepositoryInterface;
 use Drupal\Core\Session\AccountInterface;
-use Drupal\private_message\Service\PrivateMessageServiceInterface;
+use Drupal\pm_chat\Service\PrivateMessageServiceInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -21,7 +21,7 @@ class PrivateMessageAccessControlHandler extends EntityAccessControlHandler impl
   /**
    * The private message service.
    *
-   * @var \Drupal\private_message\Service\PrivateMessageServiceInterface
+   * @var \Drupal\pm_chat\Service\PrivateMessageServiceInterface
    */
   protected $privateMessageService;
 
@@ -34,7 +34,7 @@ class PrivateMessageAccessControlHandler extends EntityAccessControlHandler impl
    *   The context handler service.
    * @param \Drupal\Core\Plugin\Context\ContextRepositoryInterface $context_repository
    *   The context repository service.
-   * @param \Drupal\private_message\Service\PrivateMessageServiceInterface $privateMessageService
+   * @param \Drupal\pm_chat\Service\PrivateMessageServiceInterface $privateMessageService
    *   The private message service.
    */
   public function __construct(EntityTypeInterface $entity_type, ContextHandlerInterface $context_handler, ContextRepositoryInterface $context_repository, PrivateMessageServiceInterface $privateMessageService) {
@@ -51,7 +51,7 @@ class PrivateMessageAccessControlHandler extends EntityAccessControlHandler impl
       $entity_type,
       $container->get('context.handler'),
       $container->get('context.repository'),
-      $container->get('private_message.service')
+      $container->get('pm_chat.service')
     );
   }
 

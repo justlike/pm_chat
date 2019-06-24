@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\private_message\Controller;
+namespace Drupal\pm_chat\Controller;
 
 /**
  * Handles page callbacks for the Private Message module.

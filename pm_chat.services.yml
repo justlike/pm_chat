@@ -1,0 +1,53 @@
+parameters:
+  pm_chat.mapper.class: 'Drupal\pm_chat\Mapper\PrivateMessageMapper'
+  pm_chat.service.class: 'Drupal\pm_chat\Service\PrivateMessageService'
+  pm_chat.event_subscriber.class: 'Drupal\pm_chat\Event\PrivateMessageEventSubscriber'
+  cache_context.pm_chat_thread.class: 'Drupal\pm_chat\Cache\Context\PrivateMessageThreadCacheContext'
+  pm_chat.notifier.class: 'Drupal\pm_chat\Service\PrivateMessageNotifier'
+  pm_chat.thread_manager.class: 'Drupal\pm_chat\Service\PrivateMessageThreadManager'
+  pm_chat.pm_chat_config_form_manager.class: 'Drupal\pm_chat\PluginManager\PrivateMessageConfigFormManager'
+
+services:
+  pm_chat.mapper:
+    class: '%pm_chat.mapper.class%'
+    arguments:
+      - '@database'
+      - '@current_user'
+
+  pm_chat.service:
+    class: '%pm_chat.service.class%'
+    arguments:
+      - '@pm_chat.mapper'
+      - '@current_user'
+      - '@config.factory'
+      - '@user.data'
+      - '@cache_tags.invalidator'
+      - '@entity_type.manager'
+      - '@datetime.time'
+
+  cache_context.pm_chat_thread:
+    class: '%cache_context.pm_chat_thread.class%'
+    arguments:
+      - '@current_route_match'
+    tags:
+      - { name: cache.context}
+
+  pm_chat.notifier:
+    class: '%pm_chat.notifier.class%'
+    arguments:
+      - '@pm_chat.service'
+      - '@current_user'
+      - '@user.data'
+      - '@config.factory'
+      - '@entity_type.manager'
+      - '@message_notify.sender'
+
+  pm_chat.thread_manager:
+    class: '%pm_chat.thread_manager.class%'
+    arguments:
+      - '@pm_chat.service'
+      - '@pm_chat.notifier'
+
+  pm_chat.pm_chat_config_form_manager:
+    class: '%pm_chat.pm_chat_config_form_manager.class%'
+    parent: default_plugin_manager
