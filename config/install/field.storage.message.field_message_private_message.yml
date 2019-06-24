@@ -3,10 +3,10 @@ status: true
 dependencies:
   module:
     - message
-    - private_message
+    - pm_chat
   enforced:
     module:
-      - private_message
+      - pm_chat
 id: message.field_message_private_message
 field_name: field_message_private_message
 entity_type: message

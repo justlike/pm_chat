@@ -5,7 +5,7 @@ dependencies:
     - core.entity_view_mode.user.private_message_author
   module:
     - user
-    - private_message
+    - pm_chat
 id: user.user.private_message_author
 targetEntityType: user
 bundle: user

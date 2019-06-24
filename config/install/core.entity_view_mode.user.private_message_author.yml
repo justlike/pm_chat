@@ -3,7 +3,7 @@ status: true
 dependencies:
   module:
     - user
-    - private_message
+    - pm_chat
 id: user.private_message_author
 label: 'Private Message Author'
 targetEntityType: user

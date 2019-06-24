@@ -357,7 +357,7 @@ class PrivateMessageService implements PrivateMessageServiceInterface {
             ];
           }
           else {
-            $url = Url::fromRoute('private_message.private_message_create', [], ['query' => ['recipient' => $author->id()]]);
+            $url = Url::fromRoute('pm_chat.private_message_create', [], ['query' => ['recipient' => $author->id()]]);
             $build['private_message_link'] = [
               '#type' => 'link',
               '#url' => $url,

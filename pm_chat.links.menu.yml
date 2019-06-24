@@ -17,7 +17,7 @@ pm_chat.admin.structure.settings:
   parent: pm_chat.admin.structure
 
 pm_chat.admin_config:
-  title: 'Private Message'
+  title: 'Private Message Chat'
   description: 'Configuration settings for private messages'
   route_name: pm_chat.admin_config
   parent: system.admin_config

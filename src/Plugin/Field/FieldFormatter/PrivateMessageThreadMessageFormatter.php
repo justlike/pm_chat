@@ -245,15 +245,15 @@ class PrivateMessageThreadMessageFormatter extends FormatterBase implements Cont
       $element = array_reverse($element);
     }
 
-    $new_url = Url::fromRoute('private_message.ajax_callback', ['op' => 'get_new_messages']);
+    $new_url = Url::fromRoute('pm_chat.ajax_callback', ['op' => 'get_new_messages']);
     $token = $this->csrfTokenGenerator->get($new_url->getInternalPath());
     $new_url->setOptions(['absolute' => TRUE, 'query' => ['token' => $token]]);
 
-    $prev_url = Url::fromRoute('private_message.ajax_callback', ['op' => 'get_old_messages']);
+    $prev_url = Url::fromRoute('pm_chat.ajax_callback', ['op' => 'get_old_messages']);
     $token = $this->csrfTokenGenerator->get($prev_url->getInternalPath());
     $prev_url->setOptions(['absolute' => TRUE, 'query' => ['token' => $token]]);
 
-    $load_url = Url::fromRoute('private_message.ajax_callback', ['op' => 'load_thread']);
+    $load_url = Url::fromRoute('pm_chat.ajax_callback', ['op' => 'load_thread']);
     $load_token = $this->csrfTokenGenerator->get($load_url->getInternalPath());
     $load_url->setOptions(['absolute' => TRUE, 'query' => ['token' => $load_token]]);
 

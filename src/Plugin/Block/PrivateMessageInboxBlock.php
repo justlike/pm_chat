@@ -129,11 +129,11 @@ class PrivateMessageInboxBlock extends BlockBase implements BlockPluginInterface
           $block['#attached']['library'][] = 'pm_chat/inbox_block_style';
         }
         if (count($threads) && $thread_info['next_exists']) {
-          $prev_url = Url::fromRoute('private_message.ajax_callback', ['op' => 'get_old_inbox_threads']);
+          $prev_url = Url::fromRoute('pm_chat.ajax_callback', ['op' => 'get_old_inbox_threads']);
           $prev_token = $this->csrfToken->get($prev_url->getInternalPath());
           $prev_url->setOptions(['absolute' => TRUE, 'query' => ['token' => $prev_token]]);
 
-          $new_url = Url::fromRoute('private_message.ajax_callback', ['op' => 'get_new_inbox_threads']);
+          $new_url = Url::fromRoute('pm_chat.ajax_callback', ['op' => 'get_new_inbox_threads']);
           $new_token = $this->csrfToken->get($new_url->getInternalPath());
           $new_url->setOptions(['absolute' => TRUE, 'query' => ['token' => $new_token]]);
 
@@ -159,7 +159,7 @@ class PrivateMessageInboxBlock extends BlockBase implements BlockPluginInterface
         ];
       }
 
-      $new_url = Url::fromRoute('private_message.ajax_callback', ['op' => 'get_new_inbox_threads']);
+      $new_url = Url::fromRoute('pm_chat.ajax_callback', ['op' => 'get_new_inbox_threads']);
       $new_token = $this->csrfToken->get($new_url->getInternalPath());
       $new_url->setOptions(['absolute' => TRUE, 'query' => ['token' => $new_token]]);
 

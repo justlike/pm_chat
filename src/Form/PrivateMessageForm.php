@@ -144,7 +144,7 @@ class PrivateMessageForm extends ContentEntityForm {
       $container->get('user.data'),
       $container->get('config.factory'),
       $container->get('pm_chat.service'),
-      $container->get('private_message.thread_manager')
+      $container->get('pm_chat.thread_manager')
     );
   }
 

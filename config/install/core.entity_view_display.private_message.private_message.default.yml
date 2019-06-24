@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies:
   module:
-    - private_message
+    - pm_chat
     - text
 id: private_message.private_message.default
 targetEntityType: private_message

@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies:
   module:
-    - private_message
+    - pm_chat
 id: private_message_thread.inbox
 label: Inbox
 targetEntityType: private_message_thread

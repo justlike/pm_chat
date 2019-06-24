@@ -2,11 +2,11 @@ langcode: en
 status: true
 dependencies:
   module:
-    - private_message
+    - pm_chat
     - system
   enforced:
     module:
-      - private_message
+      - pm_chat
 id: privatemessageactions
 theme: bartik
 region: sidebar_first

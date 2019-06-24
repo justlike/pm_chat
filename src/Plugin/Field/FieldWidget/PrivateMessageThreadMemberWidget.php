@@ -210,7 +210,7 @@ class PrivateMessageThreadMemberWidget extends EntityReferenceAutocompleteWidget
     if (!$style_disabled) {
       $element['#attached']['library'][] = 'pm_chat/members_widget_style';
     }
-    $url = Url::fromRoute('private_message.members_widget_callback');
+    $url = Url::fromRoute('pm_chat.members_widget_callback');
     $token = $this->csrfTokenGenerator->get($url->getInternalPath());
     $url->setOptions(['absolute' => TRUE, 'query' => ['token' => $token]]);
 
@@ -219,7 +219,7 @@ class PrivateMessageThreadMemberWidget extends EntityReferenceAutocompleteWidget
     $element['#attached']['drupalSettings']['privateMessageMembersWidget']['fieldSize'] = $this->getSetting('size');
     $element['#attached']['drupalSettings']['privateMessageMembersWidget']['maxMembers'] = $max_members;
 
-    $validate_username_url = Url::fromRoute('private_message.ajax_callback', ['op' => 'validate_private_message_member_username']);
+    $validate_username_url = Url::fromRoute('pm_chat.ajax_callback', ['op' => 'validate_private_message_member_username']);
     $validate_username_token = $this->csrfTokenGenerator->get($validate_username_url->getInternalPath());
     $validate_username_url->setOptions(['absolute' => TRUE, 'query' => ['token' => $validate_username_token]]);
     $element['#attached']['drupalSettings']['privateMessageMembersWidget']['validateUsernameUrl'] = $validate_username_url->toString();

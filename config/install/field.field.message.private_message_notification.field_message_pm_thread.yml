@@ -6,7 +6,7 @@ dependencies:
     - message.template.private_message_notification
   enforced:
     module:
-      - private_message
+      - pm_chat
 id: message.private_message_notification.field_message_pm_thread
 field_name: field_message_pm_thread
 entity_type: message

@@ -48,7 +48,7 @@ class ConfigForm extends ConfigFormBase {
     return new static(
       $container->get('config.factory'),
       $container->get('entity.manager'),
-      $container->get('private_message.private_message_config_form_manager')
+      $container->get('pm_chat.pm_chat_config_form_manager')
     );
   }
 
@@ -76,7 +76,7 @@ class ConfigForm extends ConfigFormBase {
 
     $form['pm_core'] = [
       '#type' => 'details',
-      '#title' => $this->t('Private message core'),
+      '#title' => $this->t('Private Message Chat core'),
       '#open' => TRUE,
     ];
 
@@ -166,7 +166,7 @@ class ConfigForm extends ConfigFormBase {
 
     $form['pm_labels'] = [
       '#type' => 'details',
-      '#title' => $this->t('Private message labels'),
+      '#title' => $this->t('Private Message Chat labels'),
       '#open' => TRUE,
     ];
 

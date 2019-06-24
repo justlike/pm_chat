@@ -57,7 +57,7 @@ class AdminUninstallForm extends ConfirmFormBase {
    * {@inheritdoc}
    */
   public function getCancelUrl() {
-    return Url::fromRoute('private_message.admin_config');
+    return Url::fromRoute('pm_chat.admin_config');
   }
 
   /**

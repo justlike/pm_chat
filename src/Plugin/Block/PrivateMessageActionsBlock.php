@@ -70,7 +70,7 @@ class PrivateMessageActionsBlock extends BlockBase implements BlockPluginInterfa
   public function build() {
     if ($this->currentUser->hasPermission('use private messaging system')) {
       $config = \Drupal::config("private_message.settings");
-      $url = Url::fromRoute('private_message.private_message_create');
+      $url = Url::fromRoute('pm_chat.private_message_create');
       $block['links'] = [
         '#type' => 'link',
         '#title' => $config->get("create_message_label"),
